@@ -9,5 +9,4 @@ class AgcintensivoApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

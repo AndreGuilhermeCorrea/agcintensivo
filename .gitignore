@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+.mvn/wrapper/maven-wrapper.properties
+src/test/java/com/agc/javaintensivo/agcintensivo/AgcintensivoApplicationTests.java
