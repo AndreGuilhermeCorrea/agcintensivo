@@ -4,22 +4,23 @@ import com.agc.javaintensivo.agcintensivo.entities.Game;
 
 public class GameMiniDTO {
     
-
     private Long id;
 	private String title;
     private Integer year;
     private String imgUrl;
     private String shortDescription;
 
+    //Construtor padrão
     public GameMiniDTO() {
     }
 
+    //Construtor com argumento entity
     public GameMiniDTO(Game entity) {
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.year = entity.getYear();
-        this.imgUrl = entity.getImgUrl();
-        this.shortDescription = entity.getShortDescription();
+        id = entity.getId();
+        title = entity.getTitle();
+        year = entity.getYear();
+        imgUrl = entity.getImgUrl();
+        shortDescription = entity.getShortDescription();
     }
 
     //Getters
@@ -42,6 +43,6 @@ public class GameMiniDTO {
     public String getShortDescription() {
         return shortDescription;
     }
-
-
 }
+
+//Fim do código

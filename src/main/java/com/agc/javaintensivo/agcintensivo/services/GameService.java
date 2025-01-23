@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.agc.javaintensivo.agcintensivo.dto.GameMiniDTO;
+import com.agc.javaintensivo.agcintensivo.entities.Game;
 import com.agc.javaintensivo.agcintensivo.repositories.GameRepository;
 
-//registrar componente no spring
+//Registrar como componente no spring boot com a anotação @Service
 @Service
 public class GameService {
 
@@ -16,8 +17,11 @@ public class GameService {
     private GameRepository gameRepository;
     
     public List<GameMiniDTO> findAll(){
-        return null;
+        List<Game> result = gameRepository.findAll();
+        List<GameMiniDTO> listDto = result.stream().map(x -> new GameMiniDTO(x)).toList();
+        return listDto;
     }
+
 }
 
-
+//Fim do código
