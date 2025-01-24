@@ -1,6 +1,7 @@
 package com.agc.javaintensivo.agcintensivo.dto;
 
 import com.agc.javaintensivo.agcintensivo.entities.Game;
+import com.agc.javaintensivo.agcintensivo.projections.GameMiniProjection;
 
 public class GameMiniDTO {
     
@@ -21,6 +22,16 @@ public class GameMiniDTO {
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
+    }
+
+
+    //Construtor com argumento entity
+    public GameMiniDTO(GameMiniProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     //Getters
