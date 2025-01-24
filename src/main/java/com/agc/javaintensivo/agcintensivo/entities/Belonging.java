@@ -2,46 +2,46 @@ package com.agc.javaintensivo.agcintensivo.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "tb_game_list")
-public class GameList {
+@Table(name = "tb_belonging")
+public class Belonging {
+
+    @EmbeddedId
+    private BelongingPK id = new BelongingPK();
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    private Integer position;
 
     //Constructors
-    public GameList() {
+    public Belonging() {
     }
 
     //Constructor with parameters
-    public GameList(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Belonging(Game game, GameList gameList, Integer position) {
+        id.setGame(game);
+        id.setGameList(gameList);
+        this.position = position;
     }
 
     //Getters and Setters
-    public Long getId() {
+    public BelongingPK getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BelongingPK id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getPosition() {
+        return position;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 
     //HashCode and Equals
@@ -61,9 +61,11 @@ public class GameList {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        GameList other = (GameList) obj;
+        Belonging other = (Belonging) obj;
         return Objects.equals(id, other.id);
     }
+
+
 
 }
 
